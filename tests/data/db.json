@@ -17,6 +17,12 @@
       "firstName": "Иван",
       "lastName": "Сидоров",
       "secondName": "Андреевич"
+    },
+    {
+      "id": 10,
+      "firstName": "Петр",
+      "lastName": "Петров",
+      "secondName": "Петрович"
     }
   ],
   "books": [

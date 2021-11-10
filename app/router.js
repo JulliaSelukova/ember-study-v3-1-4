@@ -14,6 +14,7 @@ Router.map(function() {
   this.route('create-speaker');
   this.route('create-book');
   this.route('test-ver');
+  this.route('404', { path: '*path'});
 });
 
 export default Router;
