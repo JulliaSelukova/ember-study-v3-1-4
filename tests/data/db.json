@@ -1,0 +1,69 @@
+{
+  "speakers": [
+    {
+      "firstName": "Николай",
+      "lastName": "Смирнов",
+      "secondName": "Сергеевич",
+      "id": 5
+    },
+    {
+      "id": 8,
+      "firstName": "Иван",
+      "lastName": "Иванов",
+      "secondName": "Иванович"
+    },
+    {
+      "id": 9,
+      "firstName": "Иван",
+      "lastName": "Сидоров",
+      "secondName": "Андреевич"
+    }
+  ],
+  "books": [
+    {
+      "id": 1,
+      "name": "Мастер и Маргарита",
+      "author": "Булгаков М.А.",
+      "size": "300",
+      "description": "https://ru.wikipedia.org/wiki/%D0%9C%D0%B0%D1%81%D1%82%D0%B5%D1%80_%D0%B8_%D0%9C%D0%B0%D1%80%D0%B3%D0%B0%D1%80%D0%B8%D1%82%D0%B0",
+      "image": "",
+      "tags": [
+        "Роман",
+        "Воланд"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Война и мир",
+      "author": "Толстой Л.Н.",
+      "size": "1200",
+      "description": "https://ru.wikipedia.org/wiki/%D0%92%D0%BE%D0%B9%D0%BD%D0%B0_%D0%B8_%D0%BC%D0%B8%D1%80",
+      "image": "",
+      "tags": [
+        "Роман",
+        "Исторический",
+        "Наполеон",
+        "Бородино",
+        "1812"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Игрок",
+      "author": "Достоевский Ф.М.",
+      "size": "180",
+      "description": "https://ru.wikipedia.org/wiki/%D0%98%D0%B3%D1%80%D0%BE%D0%BA_(%D1%80%D0%BE%D0%BC%D0%B0%D0%BD)",
+      "image": "",
+      "tags": "Роман"
+    },
+    {
+      "id": 5,
+      "name": "Евгений Онегин",
+      "author": "Пушкин А.С.",
+      "size": "200",
+      "description": "https://ru.wikipedia.org/wiki/%D0%95%D0%B2%D0%B3%D0%B5%D0%BD%D0%B8%D0%B9_%D0%9E%D0%BD%D0%B5%D0%B3%D0%B8%D0%BD",
+      "image": "",
+      "tags": "Роман, любовь"
+    }
+  ]
+}
