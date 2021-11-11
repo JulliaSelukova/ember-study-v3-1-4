@@ -9,8 +9,13 @@ export default Service.extend ({
     this.set('books', A());
   },
 
-  async readSpeakers() {
-    const response = await fetch(`${ENV.backendURL}speakers`);
+  async readSpeakers(search) {
+    let queryParams = '';
+    if (search) {
+      queryParams = `?q=${search}`;
+    }      
+
+    const response = await fetch(`${ENV.backendURL}speakers${queryParams}`);
     let speakers = await response.json();
     this.speakers.clear();
     this.speakers.pushObjects(speakers);
