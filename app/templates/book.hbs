@@ -11,14 +11,14 @@
         </div>
         <div class="col-md-auto">
           <form class="form-inline">
-            <input class="form-control mr-2 search-long" type="search" placeholder="Найти по полям" aria-label="Найти по полям">
-            <button class="btn btn-primary my-2" type="submit">Найти</button>
+            {{input class="form-control mr-2 search-long" type="text" placeholder="Найти по полям" aria-label="Найти по полям" value=search}}
+            <button class="btn btn-primary my-2" type="submit" onclick={{action "searchAll" search=search}}>Найти</button>
           </form>
         </div>
         <div class="col-md-auto">
           <form class="form-inline">
-            <input class="form-control mr-2" type="search" placeholder="Поиск по тегам" aria-label="Найти по тегам">
-            <button class="btn btn-primary my-2" type="submit">Поиск</button>
+            {{input class="form-control mr-2" type="search" placeholder="Поиск по тегам" aria-label="Найти по тегам" value=tagSearch}}
+            <button class="btn btn-primary my-2" type="submit" onclick={{action "searchTag" tagSearch=tagSearch}}>Поиск</button>
           </form>
         </div>
       </div>
@@ -34,7 +34,11 @@
                 <li class="list-group-item">
                   <div><strong>Автор</strong>: {{book.author}}</div>
                   <div><strong>Количество страниц</strong>: {{book.size}}</div>
-                  <div><strong>Теги</strong>: <a href="#" class="tag-link"><span class="small">#суперкгнига</span></a>, <a href="#" class="tag-link"><span class="small">#программирование</span></a></div>
+                  <div><strong>Теги</strong>: 
+                    {{#each book.tags as |tag|}}
+                      <a href="#" class="tag-link"><span class="small">{{concat "#" tag}}</span></a>
+                    {{/each}}
+                  </div>
                 </li>
                 <li class="list-group-item">
                   <div class="row">

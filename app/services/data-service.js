@@ -55,10 +55,22 @@ export default Service.extend ({
     });
   },
 
-  async readBooks() {
+  async readBooks(search, tagSearch) {
     // const response = await fetch(`${ENV.backendURL}books`);
     // return response.json();
-    const response = await fetch(`${ENV.backendURL}books`);
+    
+    let queryParams = '';
+    if (search && tagSearch) {
+      queryParams = `?q=${search}&tags_like=${tagSearch}`;
+    }
+    else if (search) {
+      queryParams = `?q=${search}`;
+    }
+    else if (tagSearch) {
+      queryParams = `?tags_like=${tagSearch}`;
+    }
+
+    const response = await fetch(`${ENV.backendURL}books${queryParams}`);
     let books = await response.json();
     this.books.clear();
     this.books.pushObjects(books);
