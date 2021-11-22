@@ -23,7 +23,7 @@ module.exports = function(defaults) {
   // modules that you would like to import into your application
   // please specify an object with the list of modules as keys
   // along with the exports of each module as its value.
-
+ 
   /*app.import('vendor/tagsinput.css');
   app.import('vendor/popper.min.js');
   app.import('vendor/bootstrap-file.js');
@@ -50,10 +50,10 @@ module.exports = function(defaults) {
 
   app.import('vendor/tagsinput.css');
 
-  app.import('vendor/jquery.flexberry.downloadFile.js');
-  app.import('vendor/jquery.blobajaxtransport.js');
+  // app.import('vendor/jquery.flexberry.downloadFile.js');
+  // app.import('vendor/jquery.blobajaxtransport.js'); 
   // app.import('node_modules/blueimp-file-upload/js/jquery.fileupload.js');
-
+  
   const jsFiles = funnel('vendor', {
     files: ['popper.min.js', 'tagsinput.js', 'jquery-ui.js'],
     destDir: 'js'

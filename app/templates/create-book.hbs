@@ -42,11 +42,7 @@
                 <label for="inputTags" class="col-sm-2 col-form-label text-right">Теги</label>
                 <div class="col-sm-10">
                     <!-- {{input type="text" class="form-control" id="inputPatronymic" placeholder="#Теги через запятую" value = model.tags}} -->
-                    <select multiple="multiple" data-role="tagsinput" style="display: none;" id="inputTags">
-                        {{#each model.tags as |tag|}}
-                            <option value="{{tag}}" selected="selected">{{tag}}</option>   
-                        {{/each}}
-                    </select>
+                    {{input-tags tags=model.tags onChange=(action "changeTags")}}
                 </div>
             </div>
             <div class="form-group row">

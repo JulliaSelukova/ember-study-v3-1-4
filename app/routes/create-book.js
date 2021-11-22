@@ -9,7 +9,7 @@ export default Route.extend ({
       size: '',
       description: '',
       image: '',
-      tags: '',
+      tags: [],
     };
   }
 });
