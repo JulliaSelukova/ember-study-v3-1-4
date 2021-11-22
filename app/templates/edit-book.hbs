@@ -48,7 +48,7 @@
             <div class="form-group row">
                 <div class="col-12 text-right">
                     <button type="submit" class="btn btn-primary btn-lg">Сохранить</button>
-                    <LinkTo class="btn btn-outline-secondary btn-lg" @route="book">Отмена</LinkTo>
+                    {{#link-to "book" class="btn btn-outline-secondary btn-lg"}}Отмена{{/link-to}}
                 </div>
             </div>
         </form>

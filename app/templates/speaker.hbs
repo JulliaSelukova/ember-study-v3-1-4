@@ -18,14 +18,14 @@
 			</div>
 			{{#if isLoading}}
 				<div class="row align-items-center h-100">
-        			<img src="images/loading.gif">
+        			<img src="/loading.gif">
     			</div>
 			{{else}}			
 			<div class="row row-cols-1 row-cols-md-3">
 				{{#each this.model as |speaker|}}
 					<div class="col mb-4">
 						<div class="card">					
-							<img src="images/speaker.jpg" class="card-img-top" alt="Фото спикера">												
+							<img src="/speaker.jpg" class="card-img-top" alt="Фото спикера">												
 							<div class="card-body">							
 								<h5 class="card-title">{{speaker.lastName}} {{speaker.firstName}} {{speaker.secondName}}</h5>											  		
 							</div>
