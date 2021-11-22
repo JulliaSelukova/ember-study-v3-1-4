@@ -13,8 +13,26 @@ export default Controller.extend ({
     
     async saveBook(e) {
       e.preventDefault();
-      await this.get('dataService').changeBook(this.model);
-      this.transitionToRoute('book');
-    }
-  }  
+      set(this, 'isUploadingFile', true);
+      const uploadData = get(this, 'uploadData');
+      try {
+        await this.get('dataService').saveBook(this.model, uploadData, false);
+      }
+      catch(e) {
+
+      }
+      finally {
+        set(this, 'isUploadingFile', false);
+        this.transitionToRoute('book');
+      }
+    },
+
+    changeUploadData(uploadData) {
+      set(this, 'uploadData', uploadData);
+    }    
+  },
+  
+  reset() {     
+    set(this, 'uploadData', null);
+  }
 });

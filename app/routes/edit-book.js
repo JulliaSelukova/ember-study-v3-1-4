@@ -6,5 +6,10 @@ export default Route.extend ({
 
   async model({ id }) {
     return this.get('dataService').readBook(id);
+  },
+
+  setupController(controller/*, model*/) {
+    this._super(...arguments);
+    controller.reset();
   }
 });

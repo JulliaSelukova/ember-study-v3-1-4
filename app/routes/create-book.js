@@ -9,7 +9,12 @@ export default Route.extend ({
       size: '',
       description: '',
       image: '',
-      tags: [],
+      tags: []
     };
+  },
+
+  setupController(controller/*, model*/) {
+    this._super(...arguments);
+    controller.reset();
   }
 });

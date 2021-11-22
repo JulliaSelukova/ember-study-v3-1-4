@@ -24,45 +24,22 @@ module.exports = function(defaults) {
   // please specify an object with the list of modules as keys
   // along with the exports of each module as its value.
  
-  /*app.import('vendor/tagsinput.css');
-  app.import('vendor/popper.min.js');
-  app.import('vendor/bootstrap-file.js');
-  app.import('vendor/tagsinput.js');*/
-
-  /*app.import('vendor/jquery.flexberry.downloadFile.js');
-  app.import('vendor/jquery.blobajaxtransport.js');
-  app.import('vendor/jquery-ui.js');*/
-
-  /*const cssFiles = funnel('vendor', {
-    files: ['tagsinput.css'],
-    destDir: 'css'
-  });
-
-  const jsFiles = funnel('vendor', {
-    files: ['popper.min.js', 'tagsinput.js', 'popper.min.js'],
-    destDir: 'js'
-  });*/
-
-  //const jqueryFiles = funnel('node_modules/blueimp-file-upload/js', {
-  // files: ['**/*.js'],
-  //  destDir: 'js'
-  //});
-
+  
   app.import('vendor/tagsinput.css');
 
-  // app.import('vendor/jquery.flexberry.downloadFile.js');
-  // app.import('vendor/jquery.blobajaxtransport.js'); 
+  app.import('vendor/jquery.flexberry.downloadFile.js');
+  app.import('vendor/jquery.blobajaxtransport.js');
   // app.import('node_modules/blueimp-file-upload/js/jquery.fileupload.js');
-  
+
   const jsFiles = funnel('vendor', {
     files: ['popper.min.js', 'tagsinput.js', 'jquery-ui.js'],
     destDir: 'js'
   });
 
-  //const jqueryFiles = funnel('node_modules/blueimp-file-upload/js', {
-  //  files: ['**/*.js'],
-  //  destDir: 'js'
-  //});
+  const jqueryFiles = funnel('node_modules/blueimp-file-upload/js', {
+    files: ['**/*.js'],
+    destDir: 'js'
+  });
 
-  return app.toTree(jsFiles/*[jsFiles, jqueryFiles]*/);
+  return app.toTree([jsFiles, jqueryFiles]);
 };
