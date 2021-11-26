@@ -5,6 +5,7 @@ export default Route.extend ({
   dataService: service('data-service'),
 
   async model({ id }) {
-    return this.get('dataService').readSpeaker(id);
+    //return this.get('dataService').readSpeaker(id);
+    return this.get('store').findRecord('speaker', id);
   }
 });

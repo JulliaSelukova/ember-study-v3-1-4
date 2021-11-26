@@ -5,7 +5,7 @@ module.exports = function(environment) {
     modulePrefix: 'ember-study-v3-1-4',
     environment,
     rootURL: '/',
-    backendURL: 'http://localhost:3000/',
+    backendURL: 'http://localhost:3000',
     locationType: 'auto',
     EmberENV: {
       FEATURES: {
@@ -24,7 +24,7 @@ module.exports = function(environment) {
     }
   };
   
-  ENV.fileUploadURL = ENV.backendURL + 'FileUpload';
+  ENV.fileUploadURL = ENV.backendURL + '/FileUpload';
 
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;

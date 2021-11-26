@@ -16,7 +16,8 @@ export default Route.extend ({
     let promise = new Promise((resolve, reject) => {
       later (async () => {
         try {
-          let speakers = search ? await this.get('dataService').readSpeakers(search) : await this.get('dataService').readSpeakers();
+          //let speakers = search ? await this.get('dataService').readSpeakers(search) : await this.get('dataService').readSpeakers();
+          let speakers = search ? await this.get('store').query('speaker', {q: search}) : await this.get('store').findAll('speaker');
           resolve(speakers);
         }
         catch (e) {
@@ -24,17 +25,17 @@ export default Route.extend ({
         }
       }, 1000);
     }).
-    then((speakers) =>{
+    then((speakers) => {
       this.set('controller.model', speakers);
     }).
     finally(() => {
       if (promise === this.get('modelPromise')){
         this.set('controller.isLoading', false);
-      }      
+      }
     });
 
     this.set('modelPromise', promise);
-    return { isLoading: true };
+    return { isLoading: true };    
   },
 
   setupController(controller) {
@@ -42,6 +43,6 @@ export default Route.extend ({
 
     if (this.get('modelPromise')) {
       controller.set('isLoading', true);
-    }    
+    }
   }
 });

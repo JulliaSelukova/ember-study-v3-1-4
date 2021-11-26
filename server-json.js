@@ -56,7 +56,42 @@ server.use(middlewares)
 // You can use the one used by JSON Server
 server.use(jsonServer.bodyParser);
 
-server.post("FileUpload", upload.any(), function (req, res) {
+/*server.use((req, res, next) => {
+  if (req.method === 'DELETE') {
+    let urlSegm = req.url.split('/');
+    res.json({
+      id: urlSegm[urlSegm.length - 1]
+    });
+  }
+  next()
+})*/
+
+function responseInterceptor(req, res, next) {
+  var originalSend = res.send;
+
+  res.send = function() {
+    let body = arguments[0];
+
+    if (req.method === 'DELETE') {
+      let urlSegms = req.url.split('/');
+      let idStr = urlSegms[urlSegms.length - 1];
+      let id = parseInt(idStr);
+      id = isNaN(id) ? idStr : id;
+
+      let newBody = Object.assign({}, JSON.parse(body));
+      newBody.id = id;
+      arguments[0] = JSON.stringify(newBody);
+    }
+
+    originalSend.apply(res, arguments);
+  };
+
+  next();
+}
+
+server.use(responseInterceptor)
+
+server.post("/FileUpload", upload.any(), function (req, res) {
 
   let filedata = req.files;
 
@@ -68,10 +103,12 @@ server.post("FileUpload", upload.any(), function (req, res) {
   }
 });
 
-server.post('saveURL', function (req, res) {
+server.post('/saveURL', function (req, res) {
   const entityId = req.body.id;
   const entityName = req.body.entityName;
   const fileName = req.body.fileName;
+
+  console.log(entityId, entityName, fileName);
 
   const db = router.db; //lowdb instance
   const book = db.get(entityName).find({ id: entityId }).assign({ image: `${urlBase}${fileName}` }).write();

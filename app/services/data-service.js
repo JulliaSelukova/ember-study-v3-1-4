@@ -15,7 +15,7 @@ export default Service.extend ({
       queryParams = `?q=${search}`;
     }      
 
-    const response = await fetch(`${ENV.backendURL}speakers${queryParams}`);
+    const response = await fetch(`${ENV.backendURL}/speakers${queryParams}`);
     let speakers = await response.json();
     this.speakers.clear();
     this.speakers.pushObjects(speakers);
@@ -23,13 +23,13 @@ export default Service.extend ({
   },
 
   readSpeaker(id) {
-    //const response = await fetch(`${ENV.backendURL}speakers/${id}`);
+    //const response = await fetch(`${ENV.backendURL}/speakers/${id}`);
     //return response.json();
     return this.speakers.find((speaker) => speaker.id === parseInt(id));
   },
 
   changeSpeaker(speaker) {
-    return fetch(`${ENV.backendURL}speakers/${speaker.id}`, {
+    return fetch(`${ENV.backendURL}/speakers/${speaker.id}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
@@ -39,7 +39,7 @@ export default Service.extend ({
   },
 
   createSpeaker(speaker) {
-    return fetch(`${ENV.backendURL}speakers`, {
+    return fetch(`${ENV.backendURL}/speakers`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -50,13 +50,13 @@ export default Service.extend ({
 
   deleteSpeaker(speaker) {
     this.speakers.removeObject(speaker);
-    return fetch(`${ENV.backendURL}speakers/${speaker.id}`, {
+    return fetch(`${ENV.backendURL}/speakers/${speaker.id}`, {
       method: 'DELETE',
     });
   },
 
   async readBooks(search, tagSearch) {
-    // const response = await fetch(`${ENV.backendURL}books`);
+    // const response = await fetch(`${ENV.backendURL}/books`);
     // return response.json();
     
     let queryParams = '';
@@ -70,7 +70,7 @@ export default Service.extend ({
       queryParams = `?tags_like=${tagSearch}`;
     }
 
-    const response = await fetch(`${ENV.backendURL}books${queryParams}`);
+    const response = await fetch(`${ENV.backendURL}/books${queryParams}`);
     let books = await response.json();
     this.books.clear();
     this.books.pushObjects(books);
@@ -78,14 +78,14 @@ export default Service.extend ({
   },
 
   async readBook(id) {
-    // const response = await fetch(`${ENV.backendURL}books/${id}`);
+    // const response = await fetch(`${ENV.backendURL}/books/${id}`);
     // return response.json();
 
     return this.books.find((book) => book.id === parseInt(id));
   },
 
   /*changeBook(book) {
-    return fetch(`${ENV.backendURL}books/${book.id}`, {
+    return fetch(`${ENV.backendURL}/books/${book.id}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
@@ -97,13 +97,13 @@ export default Service.extend ({
   async saveBook(book, uploadData, bNew) {
     return new Promise(async (resolve, reject) => {
       try {
-        const savedBookPromise = await fetch(`${ENV.backendURL}books${bNew === true ? '' : '/' + book.id}`, {
+        /*const savedBookPromise = await fetch(`${ENV.backendURL}/books${bNew === true ? '' : '/' + book.id}`, {
           method: bNew === true ? 'POST' : 'PATCH',
           headers: {
             'Content-Type': 'application/json'
           },
           body: JSON.stringify(book)
-        });
+        });*/         
 
         const savedBook = await savedBookPromise.json();
 
@@ -121,7 +121,7 @@ export default Service.extend ({
               fileName: result.filename
             };
 
-            await fetch(`${ENV.backendURL}saveURL`, {
+            await fetch(`${ENV.backendURL}/saveURL`, {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json'
@@ -148,7 +148,7 @@ export default Service.extend ({
 
   deleteBook(book) {
     this.books.removeObject(book);
-    return fetch(`${ENV.backendURL}books/${book.id}`, {
+    return fetch(`${ENV.backendURL}/books/${book.id}`, {
       method: 'DELETE',
     });
   }
