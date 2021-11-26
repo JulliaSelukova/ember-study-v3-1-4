@@ -4,7 +4,7 @@ import { set } from '@ember/object';
 
 export default Component.extend({
     isFileChoosen: computed('uploadData', function () {
-        return this.get('uploadData') && this.get('uploadData').files.length;
+        return (this.get('uploadData') && this.get('uploadData').files.length) || (this.image);
     }),
     
     ifRemoveButtonDisabled: computed('isFileChoosen', function () {
@@ -54,11 +54,14 @@ export default Component.extend({
         if (this.$('.custom-file-input').fileupload('instance')) {
             this.$('.custom-file-input').fileupload('destroy');
         }
+        set(this, 'image', null);
     },
 
     actions: {
         removeFile() {
             set(this, 'uploadData', null);
+            set(this, 'image', null);
+            //this.send('changeUploadData', uploadData);
         }
     }
 });

@@ -8,7 +8,7 @@ export default Controller.extend ({
   actions: {    
     changeTags(newTags) {
       set(this.model, 'tags', [...newTags]);      
-      console.log(get(this, 'tags'));
+      //console.log(get(this, 'tags'));
     },
     
     async saveBook(e) {
@@ -16,7 +16,7 @@ export default Controller.extend ({
       set(this, 'isUploadingFile', true);
       const uploadData = get(this, 'uploadData');
       try {
-        await this.get('dataService').saveBook(this.model, uploadData, false);
+        await this.get('dataService').saveBook(this.model, uploadData, false);        
       }
       catch(e) {
 
@@ -29,6 +29,7 @@ export default Controller.extend ({
 
     changeUploadData(uploadData) {
       set(this, 'uploadData', uploadData);
+      set(this.model, 'image', null);
     }    
   },
   
