@@ -16,16 +16,10 @@ export default Controller.extend ({
       e.preventDefault();
       set(this, 'isUploadingFile', true);
       const uploadData = get(this, 'uploadData');
-      
-      //await this.get('dataService').saveBook(this.model, uploadData, true);
-      /*let newBook = this.get('store').createRecord('book', this.model);
-      newBook.serialize();
-      await newBook.save();*/
-
+           
       await new Promise(async (resolve, reject) => {
         try {                    
           let newBook = this.get('store').createRecord('book', this.model); 
-          //newBook.serialize();
           await newBook.save();
 
           if (!uploadData) {
@@ -38,7 +32,7 @@ export default Controller.extend ({
             try {
               const dataToUpload = {
                 entityName: 'books',
-                id: newBook.get('id'),
+                id: parseInt(newBook.get('id')),
                 fileName: result.filename
               };
   
