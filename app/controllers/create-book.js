@@ -1,10 +1,8 @@
 import Controller from '@ember/controller';
 import ENV from 'ember-study-v3-1-4/config/environment';
 import { get, set } from '@ember/object';
-import { inject as service } from '@ember/service';
 
 export default Controller.extend ({
-  dataService: service('data-service'),
 
   actions: {
     changeTags(newTags) {

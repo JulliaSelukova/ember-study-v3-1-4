@@ -26,6 +26,7 @@
         {{#each this.model as |book|}}
           <div class="col mb-4">
               <div class="card">
+              {{debugger}} 
               <img src={{if book.image book.image "/book-cover.jpg"}} class="card-img-top" alt="Обложка книги">
               <div class="card-header">
                   <h5 class="card-title">{{book.name}}</h5>

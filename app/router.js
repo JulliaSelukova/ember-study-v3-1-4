@@ -13,8 +13,10 @@ Router.map(function() {
   this.route('edit-speaker', { path: 'edit-speaker/:id' });
   this.route('create-speaker');
   this.route('create-book');
-  this.route('test-ver');
   this.route('404', { path: '*path'});
+  this.route('meeting', { path: '/meetings' });
+  this.route('create-meeting');
+  this.route('edit-meeting');
 });
 
 export default Router;

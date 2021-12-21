@@ -12,7 +12,7 @@ export default Controller.extend ({
     async deleteBook(book) {
       //await this.get('dataService').deleteBook(book);
       await book.destroyRecord();
-      this.transitionToRoute('book');
+      //this.transitionToRoute('book');
     },
     searchAll(e) {
       e.preventDefault();
