@@ -16,7 +16,10 @@ Router.map(function() {
   this.route('404', { path: '*path'});
   this.route('meeting', { path: '/meetings' });
   this.route('create-meeting');
-  this.route('edit-meeting');
+  this.route('edit-meeting', { path: 'edit-meeting/:id' });
+  this.route('report');
+  this.route('create-report');
+  this.route('edit-report', { path: 'edit-report/:id' });
 });
 
 export default Router;

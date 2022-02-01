@@ -1,8 +1,6 @@
 import Route from '@ember/routing/route';
-import { inject as service } from '@ember/service';
 
 export default Route.extend ({
-  dataService: service('data-service'),
 
   async model({ id }) {
     //return this.get('dataService').readSpeaker(id);

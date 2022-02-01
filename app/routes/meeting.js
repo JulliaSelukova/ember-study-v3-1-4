@@ -1,10 +1,8 @@
 import Route from '@ember/routing/route';
-//import { inject as service } from '@ember/service';
 
-export default Route.extend({
-    //dataService: service('data-service'),
+export default Route.extend({    
     
-    async model() {    
-        return this.get('store').findAll('meeting');
+    async model() {
+        return this.get('store').findAll('meeting');        
     }
 });

@@ -22,5 +22,30 @@ export default DS.JSONSerializer.extend({
       let json = this._super(...arguments);
       //json.type = snapshot.modelName;
       return json;
+  },
+
+  keyForRelationship (key, typeClass, method) {
+    if (typeClass === 'belongsTo') {
+      return `${key}Id`;
+    }
+
+    return this._super(...arguments);
+  },
+
+  extractRelationship (relationshipModelName, relationshipHash) {
+    // Так делаем из-за того, что нас не устраивает задавать атрибут type и хранить его на сервере. 
+    // Подменяем хэш на ид, таким образом эмбер type сам определяет - берет из метаданных имя модели.
+    /* let hash = relationshipHash.id ? relationshipHash.id : relationshipHash;
+    return this._super.call(this, relationshipModelName, hash); */
+    return this._super(...arguments);
+  },
+
+  serializeBelongsTo(snapshot, json, relationship) {
+    // super.serializeBelongsTo(...arguments);
+    let key = relationship.key;
+    let belongsTo = snapshot.belongsTo(key);
+
+    key = this.keyForRelationship ? this.keyForRelationship(key, "belongsTo", "serialize") : key;
+    json[key] = isNone(belongsTo) ? belongsTo : parseInt(belongsTo.record.get('id'));
   }
 });

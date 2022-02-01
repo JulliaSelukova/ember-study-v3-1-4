@@ -62,7 +62,7 @@
       "author": "Толстой Л.Н.",
       "size": 1200,
       "description": "https://ru.wikipedia.org/wiki/%D0%92%D0%BE%D0%B9%D0%BD%D0%B0_%D0%B8_%D0%BC%D0%B8%D1%80",
-      "image": "/uploads/Kniga_test-1640070457439.jpg",
+      "image": "/uploads/Kniga_test-1640680375402.jpg",
       "tags": [
         "исторический",
         "Наполеон",
@@ -94,14 +94,12 @@
     {
       "name": "11111111111111",
       "author": "1111",
-      "size": 111,
+      "size": 11,
       "description": "",
-      "image": "/uploads/kniga_1322-1640085832055.jpg",
+      "image": "/uploads/book-progr-1640680428649.jpg",
       "tags": [
         "11111",
-        "1111111",
-        "1",
-        "11"
+        "1111111"
       ],
       "id": 8
     },
@@ -110,7 +108,7 @@
       "author": "8888888",
       "size": 88,
       "description": "",
-      "image": "/uploads/kniga_1322-1640081746591.jpg",
+      "image": "/uploads/clean-code-1640155039690.jpg",
       "tags": [
         "8888",
         "8"
@@ -121,15 +119,39 @@
   "meetings": [
     {
       "id": 1,
-      "meetingDate": "2021-11-24"
+      "meetingDate": "2022-01-11T19:00:00.000Z"
     },
     {
       "id": 2,
-      "meetingDate": "2021-12-15"
+      "meetingDate": "2021-12-29T19:00:00.000Z"
     },
     {
-      "id": 3,
-      "meetingDate": "2022-01-13"
+      "meetingDate": "2021-11-24T19:00:00.000Z",
+      "id": 3
+    }
+  ],
+  "reports": [
+    {
+      "id": 1,
+      "date": "2021-11-24",
+      "grade": 75,
+      "urlVideo": "https://www.youtube.com/",
+      "urlPresentation": "https://www.google.ru/intl/ru/slides/about/",
+      "review": "Описание книги1 Описание книги1 Описание книги1 Описание книги1 Описание книги1 Описание книги1 Описание книги1 Описание книги1 Описание книги1",
+      "meetingId": 1,
+      "speakerId": 1,
+      "bookId": 1
+    },
+    {
+      "id": 2,
+      "date": "2021-11-24",
+      "grade": 90,
+      "urlVideo": "https://www.ivi.ru/",
+      "urlPresentation": "https://www.google.ru/intl/ru/slides/about/",
+      "review": "Описание книги2 Описание книги2 Описание книги2 Описание книги2 Описание книги2 Описание книги2 Описание книги2 Описание книги2 Описание книги2",
+      "meetingId": 1,
+      "speakerId": 1,
+      "bookId": 1
     }
   ]
 }
