@@ -11,31 +11,29 @@
             </div>
             <div class="col-md-3">
                 <h5>Спикер</h5>
-                <div class="dropdown">
-                    <button class="btn btn-outline-secondary dropdown-toggle my-2 w-100" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <span>Спикер...</span>
-                        <span class="caret"></span>
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#">Фамилия имя</a>
-                        <a class="dropdown-item" href="#">Фамилия имя</a>
-                        <a class="dropdown-item" href="#">Фамилия имя</a>
-                    </div>
-                </div>
+                {{#power-select
+                    options=model.speakers
+                    selected=selectedSpeaker
+                    onchange=(action "changeSpeaker")
+                    searchField="fullName"
+                    allowClear=true
+                    as |speaker|
+                }}
+                    {{speaker.fullName}}
+                {{/power-select}}
             </div>
             <div class="col-md-3">
                 <h5>Книга</h5>
-                <div class="dropdown">
-                    <button class="btn btn-outline-secondary dropdown-toggle my-2 w-100" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <span>Книга...</span>
-                        <span class="caret"></span>
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#">Название книги</a>
-                        <a class="dropdown-item" href="#">Название книги</a>
-                        <a class="dropdown-item" href="#">Название книги</a>
-                    </div>
-                </div>
+                {{#power-select
+                    options=model.books
+                    selected=selectedBook
+                    onchange=(action "changeBook")
+                    searchField="nameWithAuthor"
+                    allowClear=true
+                    as |book|
+                }}
+                    {{book.nameWithAuthor}}
+                {{/power-select}}                
             </div>
             <div class="col-md-3">
                 <h5>Дата встречи</h5>

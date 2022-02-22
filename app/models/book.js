@@ -1,4 +1,5 @@
 import DS from 'ember-data';
+import { computed } from '@ember/object';
 
 export default DS.Model.extend({
   name: DS.attr('string'),
@@ -8,5 +9,9 @@ export default DS.Model.extend({
   image: DS.attr('string'),
   tags: DS.attr(),
 
-  reports: DS.hasMany('report')
+  reports: DS.hasMany('report'),
+
+  nameWithAuthor: computed('name', 'author', function() {
+    return `${this.get('name')} - ${this.get('author')}`;
+  })
 });
