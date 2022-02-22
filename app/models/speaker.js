@@ -6,5 +6,9 @@ export default DS.Model.extend({
   secondName: DS.attr('string'),
   lastName: DS.attr('string'),
   
-  reports: DS.hasMany('report')  
+  reports: DS.hasMany('report'),
+
+  fullName: computed('firstName', 'secondName', 'lastName', function() {
+    return `${this.get('firstName')} ${this.get('secondName')} ${this.get('lastName')}`;
+  })
 });
