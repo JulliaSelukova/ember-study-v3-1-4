@@ -13,8 +13,12 @@ export default DS.JSONAPIAdapter.extend({
 
     buildURL(modelName, id, snapshot, requestType, query) {
       let url = this._super(...arguments);
-      if (modelName === 'meeting' && requestType === 'findRecord' && id) {
+      if (modelName === 'meeting') {
         url += '?_embed=reports';
+      }
+
+      if (modelName === 'report') {
+        url += '?_expand=speaker&_expand=book&_expand=meeting'
       }
 
       return url;        

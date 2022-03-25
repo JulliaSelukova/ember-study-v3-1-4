@@ -13,18 +13,13 @@ export default Component.extend({
             autoclose: true
         }).on("changeDate", function(e) {
             // `e` here contains the extra attributes
-            self.get('onChageDate')(e.date);
+            self.get('onChangeDate')(e.date);
+        }).on("clearDate", function() {
+            self.get('onClearDate')();
         });
 
         /*if (!this.$('.datepicker').datepicker('getDate')) {
             this.$('.datepicker').datepicker('setUTCDate', new Date());
         }*/ //Не работает 
-    },
-
-    /*actions: {
-        
-        onChange (newDate) {           
-            this.get('onChageDate')(newDate);
-        }
-    },*/
+    },    
 });

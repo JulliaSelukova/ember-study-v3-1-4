@@ -115,6 +115,37 @@ server.post('/saveURL', function (req, res) {
   res.status(200).json(book);
 });
 
+//фильтрация встреч по связанным сущностям (спикер, книга)
+server.use((request, response, next) => {
+  const speaker = Number(request.query.speaker);
+  const book = Number(request.query.book);
+  const searchDate = request.searchDate;
+
+  if (request.method === 'GET' && request.path === "/meetings" && !Number.isNaN(speaker)) {
+    const meetings = router.db.get('meetings').map((meeting) => {
+      meeting.reports = router.db.get('reports').filter((r) => r.meetingId === meeting.id && r.speakerId === speaker).value();
+
+      return meeting;
+    }).filter((m) => m.reports.length > 0).value();
+
+    response.json(meetings);
+  } else if (request.method === 'GET' && request.path === "/meetings" && !Number.isNaN(book)) {
+    const meetings = router.db.get('meetings').map((meeting) => {
+      meeting.reports = router.db.get('reports').filter((r) => r.meetingId === meeting.id && r.bookId === book).value();
+
+      return meeting;
+    }).filter((m) => m.reports.length > 0).value();
+
+    response.json(meetings);
+  } else if (request.method === 'GET' && request.path === "/meetings" && searchDate) {
+    const meetings = router.db.get('meetings').filter((m) => m.meetingDate === new Date(searchDate)).value();
+
+    response.json(meetings);
+  }  else {
+    next();
+  }
+});
+
 // Use default router
 server.use(router)
 

@@ -1,7 +1,11 @@
 import Route from '@ember/routing/route';
+import RSVP from 'rsvp';
 
 export default Route.extend({
     async model({ id }) {
-        return this.get('store').findRecord('meeting', id);
-      },
+        return RSVP.hash({
+        meeting: this.store.findRecord('meeting', id),
+        reports: this.store.query('report', {meetingId: id}),        
+      })
+    }
 });

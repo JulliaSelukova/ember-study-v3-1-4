@@ -2,9 +2,9 @@
     <h4>Дата встречи</h4>
     <div class="row h-100 justify-content-between mb-4">
         <div class="col-md-auto">
-            {{input-date meetingDate=(moment-format meeting.meetingDate 'DD.MM.YYYY') onChageDate=(action "changeDate")}}
+            {{input-date meetingDate=(moment-format meeting.meetingDate 'DD.MM.YYYY') onChangeDate=(action "changeDate")}}
         </div>
-        <!--<div class="col-md-auto">                     
+        <!--<div class="col-md-auto">
             <button type="submit" class="btn btn-primary btn-lg">Сохранить</button>
             {{#link-to "meeting" class="btn btn-outline-secondary btn-lg"}}Отмена{{/link-to}}               
         </div>-->
@@ -24,12 +24,12 @@
                     <div class="col-md-2 text-center">
                         <h5 class="py-2">Спикер</h5>
                         <img src="/speaker.jpg" class="rounded w-100" alt="Спикер">
-                        <p>{{report.speaker.lastName}} {{report.speaker.firstName}} - Фамилия Имя</p>
+                        <p>{{report.speaker.fullName}}</p>
                     </div>
                     <div class="col-md-2 text-center">
                         <h5 class="py-2">Книга</h5>
-                        <p>{{report.book.name}} - Название</p>
-                        <p>{{report.book.author}} - Автор</p>
+                        <p>{{report.book.name}}</p>
+                        <p>{{report.book.author}}</p>
                         <div class="row align-items-center m-0">
                             <div class="col-md-auto pl-0">
                                 Оценка:

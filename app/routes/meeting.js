@@ -3,7 +3,7 @@ import { PER_PAGE } from '../controllers/meeting';
 import RSVP from 'rsvp';
 
 export default Route.extend({    
-    queryParams: {        
+    queryParams: {
         page: {
             refreshModel: true,
         },
@@ -13,9 +13,12 @@ export default Route.extend({
         book: {
             refreshModel: true,
         },
+        searchDate: {
+            refreshModel: true,
+        }
     },
 
-    model(/*search, */{ page, speaker, book }) {    
+    model({ page, speaker, book, searchDate }) {    
         const query = {
             _page: page,
             _limit: PER_PAGE,
@@ -29,11 +32,16 @@ export default Route.extend({
             query.book = book;
         }
 
+        if (searchDate) {
+            query.searchDate = searchDate;
+        }
+
         //return this.get('store').query('meeting', query);
         return RSVP.hash({
             speakers: this.store.findAll('speaker'),
             books: this.store.findAll('book'),
             meetings: this.store.query('meeting', query),
+            reports: this.store.findAll('report'),  
         });
     }
 });

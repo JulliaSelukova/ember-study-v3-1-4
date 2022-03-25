@@ -4,11 +4,12 @@ import { computed } from '@ember/object';
 export const PER_PAGE = 2;
 
 export default Controller.extend({
-    queryParams: ['page', 'speaker', 'book'],
+    queryParams: ['page', 'speaker', 'book', 'searchDate'],
     //search: '',
     page: 1,
     speaker: '',
     book: '',
+    searchDate: '',
 
     pages: computed('model.meetings.meta.total', function() {
       const total = Number(this.get('model.meetings.meta.total'));
@@ -46,6 +47,20 @@ export default Controller.extend({
 
       changeBook(book) {
         this.set('book', book ? book.get('id') : '');
+      },
+
+      changeSearchDate(date) {
+        this.set('searchDate', date); // date.getFullYear() + '-' + date.getMonth() + '-' + date.getDate()
+      },
+
+      clearSearchDate() {
+        this.set('searchDate', null);
+      },
+
+      clearFilters() {
+        this.set('searchDate', null);
+        this.set('book', null);
+        this.set('speaker', null);
       }
     }  
 });

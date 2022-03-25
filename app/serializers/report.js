@@ -1,15 +1,29 @@
-//import ApplicationSerializer from './application';
+import ApplicationSerializer from './application';
 import DS from 'ember-data';
+import { isNone } from '@ember/utils';
 
-export default DS.JSONSerializer.extend(DS.EmbeddedRecordsMixin, {
+export default ApplicationSerializer.extend(DS.EmbeddedRecordsMixin, {
     attrs: {
         speaker: {
-            serialize: false,
+            serialize: 'id',
             deserialize: 'records'
         },
         book: {
-            serialize: false,
+            serialize: 'id',
+            deserialize: 'records'
+        },
+        meeting: {
+            serialize: 'id',
             deserialize: 'records'
         }
-    }
+    },
+
+    serializeBelongsTo(snapshot, json, relationship) {
+        // super.serializeBelongsTo(...arguments);
+        let key = relationship.key;
+        let belongsTo = snapshot.belongsTo(key);
+    
+        key = this.keyForRelationship ? this.keyForRelationship(key, "belongsTo", "serialize") : key;
+        json[key] = isNone(belongsTo) ? belongsTo : parseInt(belongsTo.record.get('id'));
+      }
 });
