@@ -4,8 +4,14 @@ import EmberObject from '@ember/object';
 export default Route.extend({
     model() {
         return EmberObject.create({
-          date: new Date().getDate(),
+          meetingDate: new Date(),
           reports: []
         })
-      }
+      },
+
+      /*для отладки - посмотреть что попало в model у контроллера
+      setupController(controller, model) {
+        this._super(...arguments);
+        debugger;
+      }*/
 });

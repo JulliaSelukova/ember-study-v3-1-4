@@ -1,5 +1,5 @@
 <div class="container h-100">
     <div class="htop">
-        {{meeting-form meeting=model.meeting onsubmit=(action "saveMeeting")}}        
+        {{meeting-form meeting=model.meeting onsubmit=(action "saveMeeting") onDeleteReport=(action "onDeleteReport") onAddReport=(action "onAddReport") new=false}}        
     </div>
 </div>

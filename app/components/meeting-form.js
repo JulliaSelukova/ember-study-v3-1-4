@@ -13,6 +13,19 @@ export default Component.extend({
 
         changeDate(newDate) {
             this.set('meetingDate', newDate);
+        },
+
+        async deleteReport(report) {
+            /* т.к. это closure-action, то удаление записи лучше производить в экшене контроллера, иначе возникает баг
+            await report.destroyRecord(); 
+            //для устранения бага (после удаления записи и дальнейшем создании - ошибка сохранения (использовал тот же id (int), который еще оставался в кэше))
+            this.get('store').unloadRecord(report);  */
+            
+            this.onDeleteReport(report);
+        },
+
+        addReport() {
+            this.onAddReport();
         }
     },
 

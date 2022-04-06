@@ -379,3 +379,14 @@ html {
     }
   }  
 @import "ember-power-select";
+
+.filter-meeting .ember-power-select-trigger {
+  padding-bottom: 0.5rem !important;
+  padding-top: 0.5rem !important;
+  margin-bottom: 0 !important;
+  margin-top: 0 !important;
+  box-sizing: border-box;
+  display: flex;
+  flex: 1 1 auto;
+  
+}
