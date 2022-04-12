@@ -20,6 +20,8 @@ Router.map(function() {
   this.route('report');
   this.route('create-report');
   this.route('edit-report', { path: 'edit-report/:id' });
+  this.route('register');
+  this.route('login');
 });
 
 export default Router;

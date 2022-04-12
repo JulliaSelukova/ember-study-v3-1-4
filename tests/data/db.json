@@ -3,7 +3,7 @@
     {
       "id": 1,
       "firstName": "Николай",
-      "lastName": "Смирнов1",
+      "lastName": "Смирнов",
       "secondName": "Сергеевич"
     },
     {
@@ -104,7 +104,7 @@
       "id": 8
     },
     {
-      "name": "88888",
+      "name": "8888888888",
       "author": "8888888",
       "size": 88,
       "description": "",
@@ -119,26 +119,38 @@
   "meetings": [
     {
       "id": 1,
-      "meetingDate": "2022-01-11T19:00:00.000Z",
-      "reports": []
+      "meetingDate": "2022-01-11T00:00:00.000Z",
+      "reports": [
+        {
+          "id": 1,
+          "date": "2022-01-11T00:00:00.000Z",
+          "grade": 75,
+          "urlVideo": "https://www.youtube.com/",
+          "urlPresentation": "https://www.google.ru/intl/ru/slides/about/",
+          "review": "Описание книги1 Описание книги1 Описание книги1 Описание книги1",
+          "meetingId": 1,
+          "speakerId": 1,
+          "bookId": 1
+        }
+      ]
     },
     {
       "id": 2,
-      "meetingDate": "2021-12-29T19:00:00.000Z",
+      "meetingDate": "2022-02-28T19:00:00.000Z",
       "reports": []
     },
     {
-      "meetingDate": "2021-11-24T19:00:00.000Z",
+      "meetingDate": "2022-04-01T19:00:00.000Z",
       "id": 3,
       "reports": []
     },
     {
-      "meetingDate": "2021-10-12T19:00:00.000Z",
+      "meetingDate": "2022-04-14T19:00:00.000Z",
       "id": 4,
       "reports": []
     },
     {
-      "meetingDate": "2022-03-10T19:00:00.000Z",
+      "meetingDate": "2022-04-06T11:08:46.495Z",
       "id": 5,
       "reports": []
     }
@@ -146,18 +158,18 @@
   "reports": [
     {
       "id": 1,
-      "date": "2022-01-11",
+      "date": "2022-01-11T00:00:00.000Z",
       "grade": 75,
       "urlVideo": "https://www.youtube.com/",
       "urlPresentation": "https://www.google.ru/intl/ru/slides/about/",
-      "review": "Описание книги1 Описание книги1 Описание книги1 Описание книги1 Описание книги1 Описание книги1 Описание книги1 Описание книги1 Описание книги1",
+      "review": "Описание книги1 Описание книги1 Описание книги1 Описание книги1",
       "meetingId": 1,
       "speakerId": 1,
       "bookId": 1
     },
     {
       "id": 2,
-      "date": "2022-01-11",
+      "date": "2022-01-11T00:00:00.000Z",
       "grade": 90,
       "urlVideo": "https://www.ivi.ru/",
       "urlPresentation": "https://www.google.ru/intl/ru/slides/about/",
@@ -167,103 +179,38 @@
       "bookId": 2
     },
     {
-      "id": 3,
-      "date": "2021-12-29",
-      "grade": 60,
-      "urlVideo": "https://www.ivi.ru/",
-      "urlPresentation": "https://www.google.ru/intl/ru/slides/about/",
-      "review": "Описание книги 3",
-      "meetingId": 2,
-      "speakerId": 3,
-      "bookId": 1
-    },
-    {
-      "date": "2022-01-11T19:00:00.000Z",
-      "grade": 50,
-      "urlVideo": "",
-      "urlPresentation": "",
-      "review": "123",
-      "meetingId": 1,
-      "bookId": 8,
-      "speakerId": 4,
-      "id": 4
-    },
-    {
-      "date": "2022-01-11T19:00:00.000Z",
-      "grade": 50,
-      "urlVideo": "",
-      "urlPresentation": "",
-      "review": "123",
-      "meetingId": 1,
-      "bookId": 2,
-      "speakerId": 5,
-      "id": 5
-    },
-    {
       "date": "2021-12-29T19:00:00.000Z",
       "grade": 88,
-      "urlVideo": "https://ru.wikipedia.org/wiki/%D0%95%D0%B2%D0%B3%D0%B5%D0%BD%D0%B8%D0%B9_%D0%9E%D0%BD%D0%B5%D0%B3%D0%B8%D0%BD",
+      "urlVideo": "https://habr.com/ru/post/189094/",
       "urlPresentation": "",
-      "review": "123456",
-      "meetingId": 2,
-      "bookId": 3,
-      "speakerId": 3,
-      "id": 6
-    },
-    {
-      "date": "2021-11-24T19:00:00.000Z",
-      "grade": 100,
-      "urlVideo": "",
-      "urlPresentation": "",
-      "review": "55555",
-      "meetingId": 3,
-      "bookId": 6,
-      "speakerId": 3,
-      "id": 7
-    },
-    {
-      "date": "2021-11-24T19:00:00.000Z",
-      "grade": 43,
-      "urlVideo": "",
-      "urlPresentation": "",
-      "review": "77777",
-      "meetingId": 3,
-      "bookId": 8,
-      "speakerId": 2,
-      "id": 8
-    },
-    {
-      "date": "2021-12-29T19:00:00.000Z",
-      "grade": 43,
-      "urlVideo": "",
-      "urlPresentation": "",
-      "review": "Мастер и Маргарита",
+      "review": "Чистый код",
       "meetingId": 2,
       "bookId": 6,
       "speakerId": 3,
       "id": 9
+    }
+  ],
+  "users": [
+    {
+      "email": "b@b.ru",
+      "password": "6762a230543c8b125e59ca28c91a213344d142d4d99d73c9694367dc48cb4955",
+      "passwordConfirmation": "6762a230543c8b125e59ca28c91a213344d142d4d99d73c9694367dc48cb4955",
+      "role": "user",
+      "id": 1
     },
     {
-      "date": "2022-01-11T19:00:00.000Z",
-      "grade": 90,
-      "urlVideo": "",
-      "urlPresentation": "",
-      "review": "555555",
-      "meetingId": 1,
-      "bookId": 6,
-      "speakerId": 3,
-      "id": 10
+      "email": "a@a.ru",
+      "password": "6762a230543c8b125e59ca28c91a213344d142d4d99d73c9694367dc48cb4955",
+      "passwordConfirmation": "6762a230543c8b125e59ca28c91a213344d142d4d99d73c9694367dc48cb4955",
+      "role": "user",
+      "id": 2
     },
     {
-      "date": "2022-01-11T19:00:00.000Z",
-      "grade": 200,
-      "urlVideo": "",
-      "urlPresentation": "",
-      "review": "Евгений Онегин",
-      "meetingId": 1,
-      "bookId": 6,
-      "speakerId": 2,
-      "id": 11
+      "email": "adm@adm.ru",
+      "password": "6762a230543c8b125e59ca28c91a213344d142d4d99d73c9694367dc48cb4955",
+      "passwordConfirmation": "6762a230543c8b125e59ca28c91a213344d142d4d99d73c9694367dc48cb4955",
+      "role": "administrator",
+      "id": 3
     }
   ]
 }

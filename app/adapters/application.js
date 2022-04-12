@@ -1,15 +1,30 @@
 import DS from 'ember-data';
 import ENV from 'ember-study-v3-1-4/config/environment';
+import { inject as service } from '@ember/service';
+import { computed } from '@ember/object';
 
 export default DS.JSONAPIAdapter.extend({
+    session: service(),
     host: ENV.backendURL,
 
-    init() {
+    /*init() {
         this._super(...arguments);
         this.set('headers', {
           'Content-Type': 'application/json'
         });
-    },
+    },*/
+
+    headers: computed(function() {
+      let resultHeaders = {
+        'Content-Type': 'application/json'
+      };
+  
+      if (this.get('session.isAuthenticated')) {
+        resultHeaders['Authorization'] = `Bearer ${this.session.data.authenticated.token}`;
+      }
+  
+      return resultHeaders;
+    }).volatile(),
 
     buildURL(modelName, id, snapshot, requestType, query) {
       let url = this._super(...arguments);
